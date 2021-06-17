@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "028eb8e1959b9a0db874bfe4ac0b72d4",
+    "content-hash": "af6e4d64e40229fb556a674606206c41",
     "packages": [
         {
             "name": "brick/math",
@@ -434,16 +434,16 @@
         },
         {
             "name": "jalno/autodiscovery",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jalno/autodiscovery.git",
-                "reference": "bcf385d6c2e80a49602e39fab1640013f54c2044"
+                "reference": "7046717dc56aae8fe8cc44b1138bef68e48a2e9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jalno/autodiscovery/zipball/bcf385d6c2e80a49602e39fab1640013f54c2044",
-                "reference": "bcf385d6c2e80a49602e39fab1640013f54c2044",
+                "url": "https://api.github.com/repos/Jalno/autodiscovery/zipball/7046717dc56aae8fe8cc44b1138bef68e48a2e9d",
+                "reference": "7046717dc56aae8fe8cc44b1138bef68e48a2e9d",
                 "shasum": ""
             },
             "require": {
@@ -458,9 +458,9 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/Jalno/autodiscovery/issues",
-                "source": "https://github.com/Jalno/autodiscovery/tree/0.0.2"
+                "source": "https://github.com/Jalno/autodiscovery/tree/v0.0.3"
             },
-            "time": "2021-06-17T14:56:58+00:00"
+            "time": "2021-06-17T18:19:14+00:00"
         },
         {
             "name": "laravel/framework",
