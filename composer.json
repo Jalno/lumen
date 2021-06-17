@@ -12,6 +12,6 @@
 	},
 	"require": {
 		"laravel/lumen": "^8.0",
-		"jalno/autodiscovery": "dev-master"
+		"jalno/autodiscovery": "0.0.1"
 	}
 }
