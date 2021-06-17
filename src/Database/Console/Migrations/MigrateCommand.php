@@ -7,13 +7,6 @@ class MigrateCommand extends ParentCommand
 {
 	use MigratePathTrait;
 
-    /**
-     * The Laravel application instance.
-     *
-     * @var \Jalno\Lumen\Application
-     */
-    protected $laravel;
-
 	/**
      * Get all of the migration paths.
      *
