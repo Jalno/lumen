@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+
+if (!isset($argv[1])) {
+	$argv[1] = '.';
+}
+if (!is_dir($argv[1])) {
+	die("Path is invalid");
+}
+
+$appPath = $argv[1];
+
+$directories = ["bootstrap", "public"];
+
+foreach ($directories as $directory) {
+	if (is_dir($appPath . "/" . $directory)) {
+		continue;
+	}
+	echo "Mkdir: " . $appPath . "/" . $directory . "\n";
+	mkdir($appPath . "/" . $directory);
+}
+
+$files = [
+	"bootstrap/app.php" => "https://raw.githubusercontent.com/jalno/primary-package/master/bootstrap/app.php",
+	"artisan" => "https://raw.githubusercontent.com/jalno/primary-package/master/artisan",
+	".env" => "https://raw.githubusercontent.com/jalno/primary-package/master/.env.example",
+	"public/index.php" => "https://raw.githubusercontent.com/jalno/primary-package/master/public/index.php",
+];
+
+foreach ($files as $local => $src) {
+	echo "Copy {$src} to: " . $appPath . "/" . $local . "\n";
+	if (!file_exists($appPath . "/" . $local)) {
+		copy($src, $local);
+	}
+}
+
+chmod($appPath . "/artisan", 0700);
