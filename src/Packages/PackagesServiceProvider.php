@@ -14,7 +14,10 @@ class PackagesServiceProvider extends ServiceProvider implements DeferrableProvi
         $this->app->instance("packages", $package);
     }
 
-    public function provides()
+    /**
+     * @return string[]
+     */
+    public function provides(): array
     {
         return [Contracts\IPackages::class];
     }

@@ -3,7 +3,7 @@ namespace Jalno\Lumen\Contracts;
 
 use Laravel\Lumen\Application;
 
-interface IAutoDiscover {
+interface IAutoDiscovery {
 	public function __construct(Application $app);
 	public function register(): void;
 }
