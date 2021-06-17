@@ -11,9 +11,7 @@ trait MigratePathTrait {
      */
     protected function dependenciesMigrationPath(?IPackage $package = null): array
     {
-        /** @var \Jalno\Lumen\Application */
-        $laravel = $this->laravel;
-        $packages = $laravel->packages;
+        $packages = $this->laravel->packages;
         if ($package === null) {
             $package = $packages->getPrimary();
         }
