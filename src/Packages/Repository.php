@@ -2,7 +2,7 @@
 namespace Jalno\Lumen\Packages;
 
 use Illuminate\Container\EntryNotFoundException;
-use Laravel\Lumen\Application;
+use Illuminate\Contracts\Foundation\Application;
 use Jalno\Lumen\Contracts\{IPackages, IPackage};
 
 class Repository implements IPackages {
@@ -10,12 +10,12 @@ class Repository implements IPackages {
 	public Application $app;
 
 	/**
-	 * @var array<string,IPackage>
+	 * @var array<class-string,IPackage>
 	 */
 	protected array $packages = [];
 
 	/**
-	 * @var class-string<IPackage>|null $primary
+	 * @var class-string<IPackage> $primary
 	 */
 	protected ?string $primary = null;
 
@@ -24,14 +24,15 @@ class Repository implements IPackages {
 		$this->app = $app;
 	}
 
-	public function register(string $package): void 
+	/**
+	 * @var class-string<IPackage> $package
+	 */
+	public function register(string $packageClass): void
 	{
-		if (isset($this->packages[$package])) {
+		if (isset($this->packages[$packageClass])) {
 			return;
 		}
-		if (!is_a($package, IPackage::class, true)) {
-			$package = new $package();
-		}
+		$package = new $packageClass();
 		foreach ($package->getDependencies() as $dependency) {
 			$this->register($dependency);
 		}
@@ -81,7 +82,7 @@ class Repository implements IPackages {
 	public function setupRouter(): void
 	{
 		foreach ($this->packages as $package) {
-			$package->setupRouter($this->app->router);
+			$package->setupRouter($this->app->make("router"));
 		}
 	}
 

@@ -6,23 +6,25 @@ use Laravel\Lumen\Application as ParentApplication;
 use Jalno\AutoDiscovery\Providers\AutoDiscoverProvider;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
 
+/**
+ * @property IPackages $packages
+ */
 class Application extends ParentApplication
 {
-    public IPackages $packages;
 
     /**
      * Create a new Lumen application instance.
      *
      * @param  string|null  $basePath
-     * @param class-string<Contracts\IPackage> $primaryPackage
-     * @param IPackages $packages
+     * @param class-string<Contracts\IPackage>|null $primaryPackage
      * @return void
      */
-    public function __construct($basePath, string $primaryPackage, IPackages $packages)
+    public function __construct($basePath = null, ?string $primaryPackage = null)
     {
-        $this->packages = $packages;
         $this->register(Packages\PackagesServiceProvider::class);
-        $this->packages->setPrimary($primaryPackage);
+        if ($primaryPackage) {
+            $this->packages->setPrimary($primaryPackage);
+        }
         parent::__construct($basePath);
         $this->singleton(ConsoleKernelContract::class, Console\Kernel::class);
         $this->register(AutoDiscoverProvider::class);

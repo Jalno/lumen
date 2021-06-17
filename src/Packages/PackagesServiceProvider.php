@@ -5,12 +5,6 @@ use Jalno\Lumen\Contracts;
 use Illuminate\Support\ServiceProvider;
 
 class PackagesServiceProvider extends ServiceProvider {
-	/**
-	 * The application instance.
-	 *
-	 * @var \Laravel\Lumen\Application
-	 */
-	protected $app;
 
 	public function register()
     {
