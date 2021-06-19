@@ -3,7 +3,7 @@ namespace Jalno\Lumen\Packages;
 
 use RuntimeException;
 use Laravel\Lumen\Routing\Router;
-use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Jalno\Lumen\Contracts\{IPackage, IStorage};
 
 abstract class PackageAbstract implements IPackage {
@@ -111,7 +111,7 @@ abstract class PackageAbstract implements IPackage {
         return $this->storage;
     }
 
-    public function disk(string $name): FilesystemAdapter
+    public function disk(string $name): Filesystem
     {
         return $this->storage()->disk($name);
     }
