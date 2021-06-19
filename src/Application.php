@@ -5,6 +5,9 @@ use Laravel\Lumen\Application as ParentApplication;
 use Jalno\AutoDiscovery\Providers\AutoDiscoveryProvider;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
 
+/**
+ * @property Contracts\IPackages $packages
+ */
 class Application extends ParentApplication
 {
 
