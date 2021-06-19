@@ -2,7 +2,7 @@
 namespace Jalno\Lumen\Contracts;
 
 use Laravel\Lumen\Routing\Router;
-use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 interface IPackage {
 	/**
@@ -28,7 +28,7 @@ interface IPackage {
 	public function getCommands(): array;
 
 	public function storage(): IStorage;
-	public function disk(string $name): FilesystemAdapter;
+	public function disk(string $name): Filesystem;
 
 	/**
 	 * @return array<array<string,string|bool|mixed>>
