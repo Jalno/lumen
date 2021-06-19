@@ -3,7 +3,7 @@ namespace Jalno\Lumen\Packages;
 
 use RuntimeException;
 use Laravel\Lumen\Routing\Router;
-use \Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Filesystem\FilesystemAdapter;
 use Jalno\Lumen\Contracts\{IPackage, IStorage};
 
 abstract class PackageAbstract implements IPackage {
@@ -18,7 +18,11 @@ abstract class PackageAbstract implements IPackage {
             if (!is_file($this->path("..", "composer.json"))) {
                 return $this->name = "";
             }
-            $composer = json_decode(file_get_contents($this->path("..", "composer.json")), true);
+            $file = file_get_contents($this->path("..", "composer.json"));
+            if (!$file) {
+                return "";
+            }
+            $composer = json_decode($file, true);
             $this->name = $composer["name"] ?? "";
         }
 
@@ -67,7 +71,11 @@ abstract class PackageAbstract implements IPackage {
             return $this->namespace;
         }
         $packageName = get_class($this);
-        $composer = json_decode(file_get_contents($this->path("..", 'composer.json')), true);
+        $file = file_get_contents($this->path("..", 'composer.json'));
+        if (!$file) {
+            throw new RuntimeException('Unable to detect application namespace.');
+        }
+        $composer = json_decode($file, true);
 
         if (isset($composer['autoload']['psr-4'])) {
             foreach ($composer['autoload']['psr-4'] as $namespace => $path) {
@@ -87,7 +95,7 @@ abstract class PackageAbstract implements IPackage {
     /**
      * Get the commands to add to the application.
      *
-     * @return array
+     * @return string[]
      */
     public function getCommands(): array
     {

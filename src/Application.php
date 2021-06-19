@@ -2,27 +2,28 @@
 namespace Jalno\Lumen;
 
 use Laravel\Lumen\Application as ParentApplication;
-use Jalno\AutoDiscovery\Providers\AutoDiscoverProvider;
+use Jalno\AutoDiscovery\Providers\AutoDiscoveryProvider;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
 
 class Application extends ParentApplication
 {
-    protected $packagePath;
+
     /**
      * Create a new Lumen application instance.
      *
-     * @param  string|null  $basePath
-     * @param class-string<Contracts\IPackage>
+     * @param string|null  $basePath
+     * @param class-string<Contracts\IPackage> $primaryPackage
      * @return void
      */
-    public function __construct($basePath = null, string $primaryPackage)
+    public function __construct($basePath, string $primaryPackage)
     {
         $this->register(Packages\PackagesServiceProvider::class);
-        $this->packages->setPrimary($primaryPackage);
+        $this['packages']->setPrimary($primaryPackage);
         parent::__construct($basePath);
         $this->singleton(ConsoleKernelContract::class, Console\Kernel::class);
-        $this->register(AutoDiscoverProvider::class);
+        $this->register(AutoDiscoveryProvider::class);
         $this->make(Contracts\IAutoDiscovery::class)->register();
+        $this->singleton(\Illuminate\Contracts\Debug\ExceptionHandler::class, \Laravel\Lumen\Exceptions\Handler::class);
     }
 
     /**
@@ -32,24 +33,32 @@ class Application extends ParentApplication
      */
     public function path()
     {
-        return $this->packages->getPrimary()->basePath();
+        $primaryPackage = $this['packages']->getPrimary();
+        if ($primaryPackage) {
+            return $primaryPackage->basePath();
+        }
+        return parent::path();
     }
 
     /**
      * Get the path to the database directory.
      *
-     * @param  string  $path
+     * @param string  $path
      * @return string
      */
     public function databasePath($path = '')
     {
-        return $this->packages->getPrimary()->getDatabasePath().($path ? DIRECTORY_SEPARATOR.$path : $path);
+        $primaryPackage = $this['packages']->getPrimary();
+        if ($primaryPackage) {
+            return $primaryPackage->getDatabasePath().($path ? DIRECTORY_SEPARATOR.$path : $path);
+        }
+        return parent::databasePath($path);
     }
 
     /**
      * Prepare the application to execute a console command.
      *
-     * @param  bool  $aliases
+     * @param bool  $aliases
      * @return void
      */
     public function prepareForConsoleCommand($aliases = true)
