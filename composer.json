@@ -1,5 +1,6 @@
 {
 	"name": "jalno/lumen",
+	"version": "1.0.1",
 	"description": "jalno lumen",
 	"license": "MIT",
 	"autoload": {
