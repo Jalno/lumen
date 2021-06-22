@@ -34,10 +34,7 @@ class Application extends ParentApplication
     public function path()
     {
         $primaryPackage = $this['packages']->getPrimary();
-        if ($primaryPackage) {
-            return $primaryPackage->basePath();
-        }
-        return parent::path();
+        return $primaryPackage->basePath();
     }
 
     /**
@@ -49,10 +46,7 @@ class Application extends ParentApplication
     public function databasePath($path = '')
     {
         $primaryPackage = $this['packages']->getPrimary();
-        if ($primaryPackage) {
-            return $primaryPackage->getDatabasePath().($path ? DIRECTORY_SEPARATOR.$path : $path);
-        }
-        return parent::databasePath($path);
+        return $primaryPackage->getDatabasePath().($path ? DIRECTORY_SEPARATOR.$path : $path);
     }
 
     /**
