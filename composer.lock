@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af6e4d64e40229fb556a674606206c41",
+    "content-hash": "912982a294349d9d31312cb9189a21d0",
     "packages": [
         {
             "name": "brick/math",
@@ -434,20 +434,20 @@
         },
         {
             "name": "jalno/autodiscovery",
-            "version": "0.0.3",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jalno/autodiscovery.git",
-                "reference": "7046717dc56aae8fe8cc44b1138bef68e48a2e9d"
+                "reference": "5a33a14f363cef4f1b25440b2fba301e2dd22dc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jalno/autodiscovery/zipball/7046717dc56aae8fe8cc44b1138bef68e48a2e9d",
-                "reference": "7046717dc56aae8fe8cc44b1138bef68e48a2e9d",
+                "url": "https://api.github.com/repos/Jalno/autodiscovery/zipball/5a33a14f363cef4f1b25440b2fba301e2dd22dc3",
+                "reference": "5a33a14f363cef4f1b25440b2fba301e2dd22dc3",
                 "shasum": ""
             },
             "require": {
-                "jalno/lumen": "^0.0.1"
+                "jalno/lumen": "^1.0.0"
             },
             "type": "library",
             "autoload": {
@@ -458,9 +458,9 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/Jalno/autodiscovery/issues",
-                "source": "https://github.com/Jalno/autodiscovery/tree/v0.0.3"
+                "source": "https://github.com/Jalno/autodiscovery/tree/v1.0.0"
             },
-            "time": "2021-06-17T18:19:14+00:00"
+            "time": "2021-06-19T14:34:36+00:00"
         },
         {
             "name": "laravel/framework",
@@ -729,16 +729,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "7d70d2f19c84bcc16275ea47edabee24747352eb"
+                "reference": "9b8cd7e3f234f15a25204e1e875571af7cc3dc8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/7d70d2f19c84bcc16275ea47edabee24747352eb",
-                "reference": "7d70d2f19c84bcc16275ea47edabee24747352eb",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/9b8cd7e3f234f15a25204e1e875571af7cc3dc8b",
+                "reference": "9b8cd7e3f234f15a25204e1e875571af7cc3dc8b",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +756,7 @@
                 "github/gfm": "0.29.0",
                 "michelf/php-markdown": "~1.4",
                 "mikehaertl/php-shellcommand": "^1.4",
-                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan": "^0.12.90",
                 "phpunit/phpunit": "^7.5 || ^8.5 || ^9.2",
                 "scrutinizer/ocular": "^1.5",
                 "symfony/finder": "^4.2"
@@ -826,7 +826,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-12T11:39:41+00:00"
+            "time": "2021-06-19T15:03:35+00:00"
         },
         {
             "name": "league/flysystem",
@@ -5806,16 +5806,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.89",
+            "version": "0.12.90",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "54c0f5a6c30511b77128d58b6369f718df250542"
+                "reference": "f0e4b56630fc3d4eb5be86606d07212ac212ede4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/54c0f5a6c30511b77128d58b6369f718df250542",
-                "reference": "54c0f5a6c30511b77128d58b6369f718df250542",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f0e4b56630fc3d4eb5be86606d07212ac212ede4",
+                "reference": "f0e4b56630fc3d4eb5be86606d07212ac212ede4",
                 "shasum": ""
             },
             "require": {
@@ -5846,7 +5846,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.89"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.90"
             },
             "funding": [
                 {
@@ -5866,7 +5866,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-09T20:23:49+00:00"
+            "time": "2021-06-18T07:15:38+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -7289,6 +7289,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
