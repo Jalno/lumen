@@ -19,7 +19,7 @@
 		"orchestra/testbench": "^6.18.0"
 	},
 	"scripts": {
-        "test:types": "phpstan analyse -vvv --debug phpstan.neon src",
+        "test:types": "./vendor/phpstan/phpstan/phpstan analyse -vvv --debug phpstan.neon src",
         "test": [
             "@test:types"
         ]
