@@ -33,6 +33,7 @@ class Application extends ParentApplication
      */
     public function path()
     {
+        /** @var Contracts\IPackage $primaryPackage */
         $primaryPackage = $this['packages']->getPrimary();
         return $primaryPackage->basePath();
     }
@@ -45,6 +46,7 @@ class Application extends ParentApplication
      */
     public function databasePath($path = '')
     {
+        /** @var Contracts\IPackage $primaryPackage */
         $primaryPackage = $this['packages']->getPrimary();
         return $primaryPackage->getDatabasePath().($path ? DIRECTORY_SEPARATOR.$path : $path);
     }
