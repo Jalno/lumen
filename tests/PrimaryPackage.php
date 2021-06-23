@@ -9,7 +9,7 @@ class PrimaryPackage extends PackageAbstract
 
     public function getProviders(): array
     {
-        return [];
+        return [SampleServiceProvider::class];
     }
 
     public function basePath(): string
