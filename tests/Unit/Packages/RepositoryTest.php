@@ -87,9 +87,10 @@ class RepositoryTest extends TestCase
     }
 
     /**
+     * @depends testRegister
      * @dataProvider registeredRepositoryProvider
      */
-    public function testAllMethodIsArrayAndEachItemIsInstanceOfIPackage(Repository $repository): void
+    public function testAll(Repository $repository): void
     {
         foreach ($repository->all() as $packageString => $packageObject) {
             $this->assertInstanceOf(IPackage::class, $packageObject);
@@ -98,6 +99,7 @@ class RepositoryTest extends TestCase
     }
 
     /**
+     * @depends testRegister
      * @dataProvider registeredRepositoryProvider
      */
     public function testSetupRouterIsWorking(Repository $repository): void
@@ -107,6 +109,7 @@ class RepositoryTest extends TestCase
     }
 
     /**
+     * @depends testRegister
      * @dataProvider registeredRepositoryProvider
      */
     public function testBoot(Repository $repository): void
@@ -115,9 +118,6 @@ class RepositoryTest extends TestCase
         $this->assertTrue(true);
     }
 
-    /**
-     * @depends testRegister
-     */
     public function registeredRepositoryProvider()
     {
         $this->setUp();
